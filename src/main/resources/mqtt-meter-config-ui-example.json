@@ -1,0 +1,260 @@
+[{
+    "id": "meters",
+    "type": "MQTT",
+    "configuration": {
+      "brokers": [{
+          "host": "localhost",
+          "port": 1883,
+          "ssl": false,
+          "retryInterval": 3000,
+          "credentials": {
+            "type": "basic",
+            "username": "administrator",
+            "password": "TQFn0y9r2"
+          },
+          "mapping": [{
+              "topicFilter": "meters/ampy",
+              "converter": {
+                "type": "json",
+                "filterExpression": "[?(@.tipoMedidor =~ /Ampy/)]",
+                "deviceNameJsonExpression": "${$.tipoMedidor}: ${$.numeroDeSerie}",
+                "deviceTypeJsonExpression": "${$.tipoMedidor}",
+                "attributes": [{
+                    "type": "string",
+                    "key": "tipoMedidor",
+                    "value": "${$.tipoMedidor}"
+                  },
+                  {
+                    "type": "string",
+                    "key": "numeroDeSerie",
+                    "value": "${$.numeroDeSerie}"
+                  },
+                  {
+                    "type": "string",
+                    "key": "concentrador",
+                    "value": "${$.concentrador}"
+                  },
+                  {
+                    "type": "string",
+                    "key": "bocaMedidor",
+                    "value": "${$.bocaMedidor}"
+                  }
+                ],
+                "timeseries": [{
+                    "type": "double",
+                    "key": "energiaActiva",
+                    "value": "${$.energiaActiva}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "demandaMaxima",
+                    "value": "${$.demandaMaxima}"
+                  },
+
+                  {
+                    "type": "double",
+                    "key": "energiaReversa",
+                    "value": "${$.energiaReversa}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "energiaReactivaInductiva",
+                    "value": "${$.energiaReactivaInductiva}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "energiaReactivaCapacitiva",
+                    "value": "${$.energiaReactivaCapacitiva}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "numeroDeResets",
+                    "value": "${$.numeroDeResets}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "demandaAcumulada",
+                    "value": "${$.demandaAcumulada}"
+                  }
+                ]
+              }
+            },
+            {
+              "topicFilter": "meters/elster",
+              "converter": {
+                "type": "json",
+                "filterExpression": "[?(@.tipoMedidor =~ /Elster/)]",
+                "deviceNameJsonExpression": "${$.tipoMedidor}: ${$.numeroDeSerie}",
+                "deviceTypeJsonExpression": "${$.tipoMedidor}",
+                "attributes": [{
+                    "type": "string",
+                    "key": "tipoMedidor",
+                    "value": "${$.tipoMedidor}"
+                  },
+                  {
+                    "type": "string",
+                    "key": "numeroDeSerie",
+                    "value": "${$.numeroDeSerie}"
+                  },
+                  {
+                    "type": "string",
+                    "key": "concentrador",
+                    "value": "${$.concentrador}"
+                  },
+                  {
+                    "type": "string",
+                    "key": "bocaMedidor",
+                    "value": "${$.bocaMedidor}"
+                  },
+
+                  {
+                    "type": "string",
+                    "key": "numeroDeConfiguracion",
+                    "value": "${$.numeroDeConfiguracion}"
+                  }
+                ],
+                "timeseries": [{
+                    "type": "double",
+                    "key": "energiaActiva",
+                    "value": "${$.energiaActiva}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "demandaMaxima",
+                    "value": "${$.demandaMaxima}"
+                  },
+
+                  {
+                    "type": "double",
+                    "key": "contadorDeCortes",
+                    "value": "${$.contadorDeCortes}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "tiempoEnServicio",
+                    "value": "${$.tiempoEnServicio}"
+                  },
+                  {
+                    "type": "string",
+                    "key": "codigoDeProducto",
+                    "value": "${$.codigoDeProducto}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "registro3",
+                    "value": "${$.registro3}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "registro4",
+                    "value": "${$.registro4}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "banderaDeEstado1",
+                    "value": "${$.banderaDeEstado1}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "cuadrante",
+                    "value": "${$.cuadrante}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "factorPotencia",
+                    "value": "${$.factorPotencia}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "corrienteA",
+                    "value": "${$.corrienteA}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "corrienteB",
+                    "value": "${$.corrienteB}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "tensionA",
+                    "value": "${$.tensionA}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "tiempoEnBajaCarga",
+                    "value": "${$.tiempoEnBajaCarga}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "contadorDeResetsDeDemanda",
+                    "value": "${$.contadorDeResetsDeDemanda}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "contadorDeInversiones",
+                    "value": "${$.contadorDeInversiones}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "contadorDeRegistros",
+                    "value": "${$.contadorDeRegistros}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "demandaMaximaPrevia",
+                    "value": "${$.demandaMaximaPrevia}"
+                  },
+                  {
+                    "type": "double",
+                    "key": "demandaMaximaAcumulada",
+                    "value": "${$.demandaMaximaAcumulada}"
+                  }
+                ]
+              }
+            }
+          ],
+          "connectRequests": [{
+              "topicFilter": "meters/connect",
+              "deviceNameJsonExpression": "${$.tipoMedidor}: ${$.numeroDeSerie}"
+            }
+          ],
+          "disconnectRequests": [{
+              "topicFilter": "meters/disconnect",
+              "deviceNameJsonExpression": "${$.tipoMedidor}: ${$.numeroDeSerie}"
+            }
+          ],
+          "attributeRequests": [{
+              "topicFilter": "sensors/attributes",
+              "deviceNameJsonExpression": "${$.serialNumber}",
+              "attributeKeyJsonExpression": "${$.key}",
+              "requestIdJsonExpression": "${$.requestId}",
+              "clientScope": false,
+              "responseTopicExpression": "sensors/${deviceName}/attributes/${responseId}",
+              "valueExpression": "{\"${attributeKey}\":\"${attributeValue}\"}"
+            }          ],
+          "attributeUpdates": [{
+              "deviceNameFilter": ".*",
+              "attributeFilter": ".*",
+              "topicExpression": "sensor/${deviceName}/${attributeKey}",
+              "valueExpression": "{\"${attributeKey}\":\"${attributeValue}\"}"
+            }
+          ],
+          "serverSideRpc": [{
+              "deviceNameFilter": ".*",
+              "methodFilter": "echo",
+              "requestTopicExpression": "sensor/${deviceName}/request/${methodName}/${requestId}",
+              "responseTopicExpression": "sensor/${deviceName}/response/${methodName}/${requestId}",
+              "responseTimeout": 10000,
+              "valueExpression": "${params}"
+            }, {
+              "deviceNameFilter": ".*",
+              "methodFilter": "no-reply",
+              "requestTopicExpression": "sensor/${deviceName}/request/${methodName}/${requestId}",
+              "valueExpression": "${params}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

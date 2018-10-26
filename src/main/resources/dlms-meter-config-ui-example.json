@@ -1,0 +1,9 @@
+[
+    {
+        "id": "meter-hub-01",
+        "type": "DLMS",
+        "configuration": {
+            "portNumber": 4063
+        }
+    }
+]

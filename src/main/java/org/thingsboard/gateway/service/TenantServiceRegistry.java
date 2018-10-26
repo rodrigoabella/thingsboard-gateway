@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.thingsboard.gateway.extensions.ExtensionService;
+import org.thingsboard.gateway.extensions.dlms.DefaultDlmsService;
 import org.thingsboard.gateway.extensions.file.DefaultFileTailService;
 import org.thingsboard.gateway.extensions.http.DefaultHttpService;
 import org.thingsboard.gateway.extensions.http.HttpService;
@@ -53,6 +54,7 @@ public class TenantServiceRegistry implements ExtensionServiceCreation {
     private static final String MQTT_EXTENSION = "MQTT";
     private static final String FILE_EXTENSION = "FILE";
     private static final String MODBUS_EXTENSION = "MODBUS";
+    private static final String DLMS_EXTENSION = "DLMS";
 
     public TenantServiceRegistry() {
         this.extensions = new HashMap<>();
@@ -122,6 +124,8 @@ public class TenantServiceRegistry implements ExtensionServiceCreation {
                 return new DefaultMqttClientService(gateway);
             case MODBUS_EXTENSION:
                 return new DefaultModbusService(gateway);
+            case DLMS_EXTENSION:
+                return new DefaultDlmsService(gateway);
             default:
                 throw new IllegalArgumentException("Extension: " + type + " is not supported!");
         }
